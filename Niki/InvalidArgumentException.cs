@@ -4,6 +4,9 @@
 
     public class InvalidArgumentException : ArgumentException
     {
-        public InvalidArgumentException(string message) : base(message) { }
+        public InvalidArgumentException(string message) 
+            : base(message)
+        {
+        }
     }
 }

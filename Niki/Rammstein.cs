@@ -1,10 +1,24 @@
 ﻿namespace Computers.UI
 {
-    class Rammstein
+    public class Rammstein
     {
-        int value; internal Rammstein(int a) { Amount = a; }
-        int Amount { get; set; }
-        public void SaveValue(int newValue) { value = newValue; }
-        public int LoadValue() { return value; }
+        private int value;
+
+        internal Rammstein(int a)
+        {
+            this.Amount = a;
+        }
+
+        private int Amount { get; set; }
+
+        public void SaveValue(int newValue)
+        {
+            this.value = newValue;
+        }
+
+        public int LoadValue()
+        {
+            return this.value;
+        }
     }
 }

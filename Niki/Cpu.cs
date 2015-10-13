@@ -2,15 +2,15 @@
 {
     using System;
 
-    class Cpu
+    public class Cpu
     {
+        private static readonly Random Random = new Random();
+
         private readonly byte numberOfBits;
 
         private readonly Rammstein ram;
 
         private readonly HardDriver videoCard;
-
-        static readonly Random Random = new Random();
 
         internal Cpu(byte numberOfCores, byte numberOfBits, Rammstein ram, HardDriver videoCard)
         {
@@ -19,37 +19,33 @@
             this.NumberOfCores = numberOfCores;
         }
 
-        byte NumberOfCores { get; set; }
+        private byte NumberOfCores { get; set; }
 
         public void SquareNumber()
         {
-            if (this.numberOfBits == 32) SquareNumber32();
-            if (this.numberOfBits == 64) SquareNumber64();
+            if (this.numberOfBits == 32)
+            {
+                this.SquareNumber32();
+            }
+
+            if (this.numberOfBits == 64)
+            {
+                this.SquareNumber64();
+            }
         }
 
-        void SquareNumber32()
+        internal void Rand(int a, int b)
         {
-            var data = this.ram.LoadValue();
-            if (data < 0)
+            int randomNumber;
+            do
             {
-                this.videoCard.Draw("Number too low.");
+                randomNumber = Random.Next(0, 1000);
             }
-            else if (data > 500)
-            {
-                this.videoCard.Draw("Number too high.");
-            }
-            else
-            {
-                int value = 0;
-                for (int i = 0; i < data; i++)
-                {
-                    value += data;
-                }
-                this.videoCard.Draw(string.Format("Square of {0} is {1}.", data, value));
-            }
+            while (!(randomNumber >= a && randomNumber <= b));
+            this.ram.SaveValue(randomNumber);
         }
 
-        void SquareNumber64()
+        private void SquareNumber64()
         {
             var data = this.ram.LoadValue();
             if (data < 0)
@@ -67,20 +63,32 @@
                 {
                     value += data;
                 }
+
                 this.videoCard.Draw(string.Format("Square of {0} is {1}.", data, value));
             }
         }
 
-        internal void rand(int a, int b)
+        private void SquareNumber32()
         {
-            int randomNumber;
-            do
+            var data = this.ram.LoadValue();
+            if (data < 0)
             {
-                randomNumber = Random.Next(0, 1000);
+                this.videoCard.Draw("Number too low.");
             }
-            while (!(randomNumber >= a && randomNumber <= b));
-            this.ram.SaveValue(randomNumber);
+            else if (data > 500)
+            {
+                this.videoCard.Draw("Number too high.");
+            }
+            else
+            {
+                int value = 0;
+                for (int i = 0; i < data; i++)
+                {
+                    value += data;
+                }
+
+                this.videoCard.Draw(string.Format("Square of {0} is {1}.", data, value));
+            }
         }
     }
-
 }

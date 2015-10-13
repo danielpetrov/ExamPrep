@@ -1,4 +1,9 @@
 ﻿namespace Computers.UI
 {
-    public enum ComputerType { PC, LAPTOP, SERVER, }
+    public enum ComputerType
+    {
+        PC,
+        LAPTOP,
+        SERVER,
+    }
 }
