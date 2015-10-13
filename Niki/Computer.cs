@@ -7,8 +7,13 @@
     {
         private readonly LaptopBattery battery;
 
-        internal Computer(ComputerType type, Cpu cpu, Rammstein ram, IEnumerable<HardDriver> hardDrives, 
-                 HardDriver videoCard, LaptopBattery battery)
+        internal Computer(
+            ComputerType type, 
+            Cpu cpu, 
+            Rammstein ram, 
+            IEnumerable<HardDriver> hardDrives, 
+            HardDriver videoCard, 
+            LaptopBattery battery)
         {
             this.Cpu = cpu;
 
