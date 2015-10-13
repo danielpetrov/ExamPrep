@@ -22,6 +22,5 @@
                 this.Percentage = 0;
             }
         }
-
     }
 }
