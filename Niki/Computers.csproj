@@ -7,7 +7,7 @@
     <ProjectGuid>{920382DC-166F-4C55-8AF7-70D668191107}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Computers.UI.Console</RootNamespace>
+    <RootNamespace>Computers.UI</RootNamespace>
     <AssemblyName>Computers.UI.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
