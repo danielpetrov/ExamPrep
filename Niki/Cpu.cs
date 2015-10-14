@@ -8,11 +8,11 @@
 
         private readonly byte numberOfBits;
 
-        private readonly Rammstein ram;
+        private readonly Ram ram;
 
-        private readonly HardDriver videoCard;
-
-        internal Cpu(byte numberOfCores, byte numberOfBits, Rammstein ram, HardDriver videoCard)
+        private readonly VideoCard videoCard;
+        //TODO shoud CPU know about videocard and ram?
+        internal Cpu(byte numberOfCores, byte numberOfBits, Ram ram, VideoCard videoCard)
         {
             this.numberOfBits = numberOfBits;
             this.ram = ram;
@@ -25,12 +25,12 @@
         {
             if (this.numberOfBits == 32)
             {
-                this.SquareNumber32();
+                this.SquareNumber(500);
             }
 
             if (this.numberOfBits == 64)
             {
-                this.SquareNumber64();
+                this.SquareNumber(1000);
             }
         }
 
@@ -45,14 +45,15 @@
             this.ram.SaveValue(randomNumber);
         }
 
-        private void SquareNumber64()
+        //TODO rename
+        private void SquareNumber(int maxValue)
         {
             var data = this.ram.LoadValue();
             if (data < 0)
             {
                 this.videoCard.Draw("Number too low.");
             }
-            else if (data > 1000)
+            else if (data > maxValue)
             {
                 this.videoCard.Draw("Number too high.");
             }
@@ -67,28 +68,5 @@
                 this.videoCard.Draw(string.Format("Square of {0} is {1}.", data, value));
             }
         }
-
-        private void SquareNumber32()
-        {
-            var data = this.ram.LoadValue();
-            if (data < 0)
-            {
-                this.videoCard.Draw("Number too low.");
-            }
-            else if (data > 500)
-            {
-                this.videoCard.Draw("Number too high.");
-            }
-            else
-            {
-                int value = 0;
-                for (int i = 0; i < data; i++)
-                {
-                    value += data;
-                }
-
-                this.videoCard.Draw(string.Format("Square of {0} is {1}.", data, value));
-            }
-        }
-    }
+     }
 }

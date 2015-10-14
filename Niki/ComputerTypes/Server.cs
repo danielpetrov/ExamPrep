@@ -6,9 +6,9 @@
     {
         internal Server(
             Cpu cpu,
-            Rammstein ram,
+            Ram ram,
             IEnumerable<HardDriver> hardDrives,
-            HardDriver videoCard)
+            VideoCard videoCard)
             : base(cpu, ram, hardDrives, videoCard)
         {
             this.VideoCard.IsMonochrome = true;

@@ -41,8 +41,6 @@
             this.hds = hardDrives;
         }
 
-        public bool IsMonochrome { get; set; }
-
         private int Capacity
         {
             get
@@ -63,23 +61,7 @@
             }
         }
 
-        public void Draw(string a)
-        {
-            if (this.IsMonochrome)
-            {
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine(a);
-                Console.ResetColor();
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(a);
-                Console.ResetColor();
-            }
-        }
-
-       private void SaveData(int addr, string newData)
+        private void SaveData(int addr, string newData)
         {
             if (this.isInRaid)
             {

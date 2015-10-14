@@ -7,28 +7,28 @@
     {
         public Laptop CreateLaptop()
         {
-            var card = new HardDriver()
+            var videoCard = new VideoCard()
             {
                 IsMonochrome = false
             };
-            var ram1 = new Rammstein(8 / 2);
+            var ram = new Ram(4);
 
-            var laptop = new Laptop(new Cpu(8 / 4, 64, ram1, card), ram1,
+            var laptop = new Laptop(new Cpu(2, 64, ram, videoCard), ram, 
                    new[]
                        {
                                 new HardDriver(500,
                                     false, 0)
                        }
 
-                   , card, new LaptopBattery());
+                   , videoCard, new LaptopBattery());
 
             return laptop;
         }
 
         public PersonalComputer CreatePersonalComputer()
         {
-            var ram = new Rammstein(8 / 4);
-            var videoCard = new HardDriver() { IsMonochrome = false };
+            var ram = new Ram(2);
+            var videoCard = new VideoCard() { IsMonochrome = false };
             var pc = new PersonalComputer(new Cpu(8 / 4, 32, ram, videoCard), ram, new[] { new HardDriver(500, false, 0) }, videoCard);
 
             return pc;
@@ -36,9 +36,9 @@
 
         public Server CreateServer()
         {
-            var serverRam = new Rammstein(8 * 4);
-            var serverVideo = new HardDriver();
-            var server = new Server(new Cpu(8 / 2, 32, serverRam, serverVideo), serverRam, new List<HardDriver>
+            var ram = new Ram(32);
+            var video = new VideoCard();
+            var server = new Server(new Cpu(4, 32, ram, video), ram, new List<HardDriver>
                             {
                                 new HardDriver(0, true, 2, new List<HardDriver>
                                 {
@@ -46,7 +46,7 @@
                                 }
                                 )
                             }
-                , serverVideo);
+                , video);
 
             return server;
         }

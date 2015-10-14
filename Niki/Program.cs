@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     //using ComputerTypes;
 
-    public class Computers
+    public class Program
     {
         private static PersonalComputer pc;
         private static Laptop laptop;

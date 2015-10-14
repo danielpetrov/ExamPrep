@@ -8,9 +8,9 @@
 
         internal Laptop(
             Cpu cpu,
-            Rammstein ram,
+            Ram ram,
             IEnumerable<HardDriver> hardDrives,
-            HardDriver videoCard,
+            VideoCard videoCard,
             LaptopBattery laptopBattery)
             : base(cpu, ram, hardDrives, videoCard)
         {

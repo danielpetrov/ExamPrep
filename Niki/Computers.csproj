@@ -55,9 +55,10 @@
     <Compile Include="IMotherboard.cs" />
     <Compile Include="InvalidArgumentException.cs" />
     <Compile Include="LaptopBattery.cs" />
-    <Compile Include="Rammstein.cs" />
+    <Compile Include="Ram.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VideoCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
