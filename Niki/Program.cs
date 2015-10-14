@@ -19,26 +19,11 @@
 
         private static void CreateComputers()
         {
-            var manufacturer = Console.ReadLine();
-            IComputerFactory computerfactory;
+            var manufacturerName = Console.ReadLine();
 
-            if (manufacturer == "HP")
-            {
-                computerfactory = new HPComputersFactory();
-            }
-            else if (manufacturer == "Dell")
-            {
-                computerfactory = new DellComputersFactory();
-            }
-            else if (manufacturer == "Lenovo")
-            {
-                computerfactory = new LenovoComputersFactory();
-            }
-            else
-            {
-                ////TODO Exception?
-                throw new InvalidArgumentException("Invalid manufacturer!");
-            }
+            var manifacturersFactory = new ManifacturersFactory();
+
+            IComputerFactory computerfactory = manifacturersFactory.GetManifacturer(manufacturerName);
 
             pc = computerfactory.CreatePersonalComputer();
             laptop = computerfactory.CreateLaptop();

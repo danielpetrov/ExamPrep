@@ -1,6 +1,6 @@
 ﻿namespace Computer.Tests
 {
-    using Computers.Logic;
+    using Computers.Logic.LaptopBattery;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -19,7 +19,7 @@
         public void ChargeShoudSubstractToPercentageWhenGivenNegativeNumber()
         {
             var battery = new LaptopBattery();
-            battery.Percentage = 50;
+            battery.Percentage = LaptopBattery.DefaultBatteryChargeValue;
             battery.Charge(-10);
             Assert.AreEqual(40, battery.Percentage);
         }
@@ -28,18 +28,18 @@
         public void ChargeShoudNotSubstractToPercentageWhenGivenNegativeNumberAndPRCis0()
         {
             var battery = new LaptopBattery();
-            battery.Percentage = 1;
+            battery.Percentage = LaptopBattery.BatteryMinValue;
             battery.Charge(-10);
-            Assert.AreEqual(0, battery.Percentage);
+            Assert.AreEqual(LaptopBattery.BatteryMinValue, battery.Percentage);
         }
 
         [TestMethod]
         public void ChargeShoudNotAddToPercentageWhenGivenPositiveNumberAndPrcIs100()
         {
             var battery = new LaptopBattery();
-            battery.Percentage = 100;
+            battery.Percentage = LaptopBattery.BatteryMaxValue;
             battery.Charge(10);
-            Assert.AreEqual(100, battery.Percentage);
+            Assert.AreEqual(LaptopBattery.BatteryMaxValue, battery.Percentage);
         }
     }
 }

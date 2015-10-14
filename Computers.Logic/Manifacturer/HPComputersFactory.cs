@@ -4,6 +4,7 @@
     using ComputerTypes;
     using CPUs;
     using HardDriver;
+    using LaptopBattery;
     using VideoCards;
 
     public class HPComputersFactory : IComputerFactory

@@ -52,11 +52,12 @@
     <Compile Include="HardDriver\HardDriver.cs" />
     <Compile Include="HardDriver\RaidArray.cs" />
     <Compile Include="HardDriver\SingleHardDriver.cs" />
-    <Compile Include="ILaptopBattery.cs" />
-    <Compile Include="IRam.cs" />
+    <Compile Include="LaptopBattery\ILaptopBattery.cs" />
+    <Compile Include="Manifacturer\ManifacturersFactory.cs" />
+    <Compile Include="Ram\IRam.cs" />
     <Compile Include="Motherboard\IMotherboard.cs" />
     <Compile Include="InvalidArgumentException.cs" />
-    <Compile Include="LaptopBattery.cs" />
+    <Compile Include="LaptopBattery\LaptopBattery.cs" />
     <Compile Include="Manifacturer\DellComputersFactory.cs" />
     <Compile Include="Manifacturer\HPComputersFactory.cs" />
     <Compile Include="Manifacturer\IComputerFactory.cs" />
@@ -64,7 +65,7 @@
     <Compile Include="Motherboard\IMotherboardComponent.cs" />
     <Compile Include="Motherboard\Motherboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ram.cs" />
+    <Compile Include="Ram\Ram.cs" />
     <Compile Include="VideoCards\ColorVideoCard.cs" />
     <Compile Include="VideoCards\MonochromeVideoCard.cs" />
     <Compile Include="VideoCards\VideoCard.cs" />

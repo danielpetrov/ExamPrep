@@ -8,6 +8,10 @@
     {
         protected static readonly Random Random = new Random();
 
+        private const string NumberTooHighMessage = "Number too high.";
+        private const string NumberTooLowMessage = "Number too low.";
+        private const string SquareInfoStringFormat = "Square of {0} is {1}.";
+
         protected Cpu(byte numberOfCores)
         {
             this.NumberOfCores = numberOfCores;
@@ -27,11 +31,11 @@
             var data = this.Motherboard.LoadRamValue();
             if (data < 0)
             {
-                this.Motherboard.DrawOnVideoCard("Number too low.");
+                this.Motherboard.DrawOnVideoCard(NumberTooLowMessage);
             }
             else if (data > this.GetMaxValue())
             {
-                this.Motherboard.DrawOnVideoCard("Number too high.");
+                this.Motherboard.DrawOnVideoCard(NumberTooHighMessage);
             }
             else
             {
@@ -41,18 +45,13 @@
                     value += data;
                 }
 
-                this.Motherboard.DrawOnVideoCard(string.Format("Square of {0} is {1}.", data, value));
+                this.Motherboard.DrawOnVideoCard(string.Format(SquareInfoStringFormat, data, value));
             }
         }
 
         internal void Rand(int a, int b)
         {
-            int randomNumber;
-            do
-            {
-                randomNumber = Random.Next(0, 1000);
-            }
-            while (!(randomNumber >= a && randomNumber <= b));
+            int randomNumber = Random.Next(a, b + 1);
             this.Motherboard.SaveRamValue(randomNumber);
         }
 

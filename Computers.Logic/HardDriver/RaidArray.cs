@@ -6,6 +6,8 @@
 
     public class RaidArray : HardDriver
     {
+        private const string NoHardDriveErrorMessage = "No hard drive in the RAID array!";
+
         private List<HardDriver> hardDrives;
 
         public RaidArray(List<HardDriver> hardDrives)
@@ -38,7 +40,8 @@
         {
             if (!this.hardDrives.Any())
             {
-                throw new OutOfMemoryException("No hard drive in the RAID array!");
+                //TODO what the puck
+                throw new OutOfMemoryException(NoHardDriveErrorMessage);
             }
 
             return this.hardDrives.First().LoadData(address);
