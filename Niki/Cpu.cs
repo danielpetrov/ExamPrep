@@ -11,12 +11,13 @@
         private readonly Ram ram;
 
         private readonly VideoCard videoCard;
-        //TODO shoud CPU know about videocard and ram?
+        ////TODO shoud CPU know about videocard and ram?
         internal Cpu(byte numberOfCores, byte numberOfBits, Ram ram, VideoCard videoCard)
         {
             this.numberOfBits = numberOfBits;
             this.ram = ram;
             this.NumberOfCores = numberOfCores;
+            this.videoCard = videoCard;
         }
 
         private byte NumberOfCores { get; set; }
@@ -25,12 +26,12 @@
         {
             if (this.numberOfBits == 32)
             {
-                this.SquareNumber(500);
+                this.SquareNumber64(500);
             }
 
             if (this.numberOfBits == 64)
             {
-                this.SquareNumber(1000);
+                this.SquareNumber64(1000);
             }
         }
 
@@ -45,8 +46,8 @@
             this.ram.SaveValue(randomNumber);
         }
 
-        //TODO rename
-        private void SquareNumber(int maxValue)
+        /////TODO rename
+        private void SquareNumber64(int maxValue)
         {
             var data = this.ram.LoadValue();
             if (data < 0)

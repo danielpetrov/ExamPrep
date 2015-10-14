@@ -7,19 +7,18 @@
     {
         public Laptop CreateLaptop()
         {
-            //TODO Fix Naming
             var ram = new Ram(8);
             var videoCard = new VideoCard()
             {
                 IsMonochrome = false
             };
 
-            var laptop = new Laptop(new Cpu(4, ((32)),
+            var laptop = new Laptop(
+                new Cpu(4, 32, ram, videoCard),
                 ram,
-                videoCard),
-                ram,
-                new[] { new HardDriver(1000, false, 0) }
-                , videoCard, new LaptopBattery());
+                new[] { new HardDriver(1000, false, 0) },
+                videoCard,
+                new LaptopBattery());
 
             return laptop;
         }
@@ -28,7 +27,8 @@
         {
             var ram = new Ram(8);
             var videoCard = new VideoCard() { IsMonochrome = false };
-            var pc = new PersonalComputer(new Cpu(8 / 2, 64, ram, videoCard),
+            var pc = new PersonalComputer(
+                new Cpu(4, 64, ram, videoCard),
                 ram,
                 new[] { new HardDriver(1000, false, 0) },
                 videoCard);
@@ -38,14 +38,13 @@
 
         public Server CreateServer()
         {
-            var ram = new Ram(8 * 8);
+            var ram = new Ram(64);
             var videoCard = new VideoCard();
-            var server = new Server(new Cpu(8, 64, ram, videoCard),
+            var server = new Server(
+                new Cpu(8, 64, ram, videoCard),
                 ram,
-                new List<HardDriver> {
-                        new HardDriver(0, true, 2, new List<HardDriver> {
-                             new HardDriver(2000, false, 0), new HardDriver(2000, false, 0)})
-                }, videoCard);
+                new List<HardDriver> { new HardDriver(0, true, 2, new List<HardDriver> { new HardDriver(2000, false, 0), new HardDriver(2000, false, 0) }) },
+                videoCard);
 
             return server;
         }

@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    //using ComputerTypes;
+    ////using ComputerTypes;
 
     public class Program
     {
@@ -29,9 +29,13 @@
             {
                 computerfactory = new DellComputersFactory();
             }
+            else if (manufacturer == "Lenovo")
+            {
+                computerfactory = new LenovoComputersFactory();
+            }
             else
             {
-                //TODO Exception?
+                ////TODO Exception?
                 throw new InvalidArgumentException("Invalid manufacturer!");
             }
 

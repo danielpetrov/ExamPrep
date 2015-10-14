@@ -55,6 +55,7 @@
     <Compile Include="IMotherboard.cs" />
     <Compile Include="InvalidArgumentException.cs" />
     <Compile Include="LaptopBattery.cs" />
+    <Compile Include="Manifacturer\LenovoComputersFactory.cs" />
     <Compile Include="Ram.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

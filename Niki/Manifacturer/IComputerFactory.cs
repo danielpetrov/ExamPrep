@@ -7,6 +7,5 @@
         Laptop CreateLaptop();
 
         Server CreateServer(); 
-
     }
 }
