@@ -25,7 +25,7 @@
 
             var number = this.Ram.LoadValue();
 
-            if (number + 1 != guessNumber + 1)
+            if (number != guessNumber)
             {
                 this.VideoCard.Draw(string.Format(WrongNumberStringFormat, number));
             }

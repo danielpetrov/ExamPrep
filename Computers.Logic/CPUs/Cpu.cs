@@ -2,14 +2,13 @@
 {
     using System;
     using Motherboard;
-    using VideoCards;
-
+    
     public abstract class Cpu : IMotherboardComponent
     {
         protected static readonly Random Random = new Random();
 
-        private const string NumberTooHighMessage = "Number too high.";
-        private const string NumberTooLowMessage = "Number too low.";
+        public const string NumberTooHighMessage = "Number too high.";
+        public const string NumberTooLowMessage = "Number too low.";
         private const string SquareInfoStringFormat = "Square of {0} is {1}.";
 
         protected Cpu(byte numberOfCores)
@@ -49,9 +48,9 @@
             }
         }
 
-        internal void Rand(int a, int b)
+        internal void Rand(int minValue, int maxValue)
         {
-            int randomNumber = Random.Next(a, b + 1);
+            int randomNumber = Random.Next(minValue, maxValue + 1);
             this.Motherboard.SaveRamValue(randomNumber);
         }
 
