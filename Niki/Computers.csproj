@@ -43,6 +43,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Manifacturer\HPComputersFactory.cs" />
+    <Compile Include="Manifacturer\DellComputersFactory.cs" />
+    <Compile Include="Manifacturer\IComputerFactory.cs" />
     <Compile Include="ComputerTypes\Computer.cs" />
     <Compile Include="ComputerTypes\Laptop.cs" />
     <Compile Include="ComputerTypes\PersonalComputer.cs" />

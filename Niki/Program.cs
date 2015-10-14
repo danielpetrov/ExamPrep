@@ -2,108 +2,65 @@
 {
     using System;
     using System.Collections.Generic;
-    using ComputerTypes;
+    //using ComputerTypes;
 
     public class Computers
     {
-        private const int Eight = 8;
-
         private static PersonalComputer pc;
         private static Laptop laptop;
         private static Server server;
-        
+
         public static void Main()
         {
+            CreateComputers();
+            ProccesCommands();
+        }
+
+        private static void CreateComputers()
+        {
             var manufacturer = Console.ReadLine();
+            IComputerFactory computerfactory;
+
             if (manufacturer == "HP")
             {
-                var ram = new Rammstein(Eight / 4);
-                var videoCard = new HardDriver() { IsMonochrome = false };
-
-                pc = new PersonalComputer(new Cpu(Eight / 4, 32, ram, videoCard), ram, new[] { new HardDriver(500, false, 0) }, videoCard);
-
-                var serverRam = new Rammstein(Eight * 4);
-                var serverVideo = new HardDriver();
-
-                server = new Server(new Cpu(Eight / 2,  32, serverRam, serverVideo), serverRam, new List<HardDriver>
-                            {
-                                new HardDriver(0, true, 2, new List<HardDriver>
-                                {
-                                    new HardDriver(1000, false, 0), new HardDriver(1000, false, 0)
-                                }
-                                )
-                            }
-                    , serverVideo);
-                {
-                    var card = new HardDriver()
-                    {
-                        IsMonochrome = false
-                    }
-
-                    ; var ram1 = new Rammstein(Eight / 2);
-
-                 laptop = new Laptop(new Cpu(Eight / 4, 64, ram1, card), ram1,
-                        new[]
-                            {
-                                new HardDriver(500,
-                                    false, 0)
-                            }
-
-                        , card, new LaptopBattery());
-                }
+                computerfactory = new HPComputersFactory();
             }
             else if (manufacturer == "Dell")
             {
-                var ram = new Rammstein(Eight);
-                var videoCard = new HardDriver() { IsMonochrome = false };
-                pc = new PersonalComputer(new Cpu(Eight / 2, 64, ram, videoCard), 
-                    ram, 
-                    new[] { new HardDriver(1000, false, 0) }, 
-                    videoCard);
-
-                var ram1 = new Rammstein(Eight * Eight);
-                var card = new HardDriver();
-                server = new Server(new Cpu(Eight, 64, ram1, card),
-                    ram1, 
-                    new List<HardDriver> {
-                        new HardDriver(0, true, 2, new List<HardDriver> {
-                             new HardDriver(2000, false, 0), new HardDriver(2000, false, 0)})
-                    }, card);
-                var ram2 = new Rammstein(Eight);
-                var videoCard1 = new HardDriver()
-                     {
-                         IsMonochrome = false };
-                laptop = new Laptop(new Cpu(Eight / 2, ((32)), 
-                    ram2, 
-                    videoCard1),
-                    ram2,
-                    new[] { new HardDriver(1000, false, 0) }
-                    ,videoCard1, new LaptopBattery());
+                computerfactory = new DellComputersFactory();
             }
             else
             {
+                //TODO Exception?
                 throw new InvalidArgumentException("Invalid manufacturer!");
             }
 
+            pc = computerfactory.CreatePersonalComputer();
+            laptop = computerfactory.CreateLaptop();
+            server = computerfactory.CreateServer();
+        }
+
+        private static void ProccesCommands()
+        {
             while (true)
             {
                 var c = Console.ReadLine();
 
                 if (c == null)
                 {
-                    goto end;
+                    break;
                 }
 
                 if (c.StartsWith("Exit"))
                 {
-                    goto end;
+                    break;
                 }
 
                 var cp = c.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 if (cp.Length != 2)
                 {
-                   throw new ArgumentException("Invalid command!");
+                    throw new ArgumentException("Invalid command!");
                 }
 
                 var cn = cp[0];
@@ -120,13 +77,12 @@
                 else if (cn == "Play")
                 {
                     pc.Play(ca);
-                } 
-
-                continue;
-                ////Console.WriteLine("Invalid command!");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid command!");
+                }
             }
-            ////TODO remove
-            end: ;
         }
      }
 }
