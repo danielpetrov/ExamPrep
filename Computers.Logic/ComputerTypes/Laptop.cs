@@ -6,14 +6,14 @@
 
     public class Laptop : Computer
     {
-        private readonly LaptopBattery battery;
+        private readonly ILaptopBattery battery;
 
         internal Laptop(
             CPUs.Cpu cpu,
-            Ram ram,
+            IRam ram,
             IEnumerable<HardDriver> hardDrives,
             VideoCard videoCard,
-            LaptopBattery laptopBattery)
+            ILaptopBattery laptopBattery)
             : base(cpu, ram, hardDrives, videoCard)
         {
             this.battery = laptopBattery;

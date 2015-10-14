@@ -52,6 +52,8 @@
     <Compile Include="HardDriver\HardDriver.cs" />
     <Compile Include="HardDriver\RaidArray.cs" />
     <Compile Include="HardDriver\SingleHardDriver.cs" />
+    <Compile Include="ILaptopBattery.cs" />
+    <Compile Include="IRam.cs" />
     <Compile Include="Motherboard\IMotherboard.cs" />
     <Compile Include="InvalidArgumentException.cs" />
     <Compile Include="LaptopBattery.cs" />
