@@ -23,7 +23,7 @@
 
             if (this.Percentage < BatteryMinValue)
             {
-                this.Percentage = 0BatteryMinValue;
+                this.Percentage = BatteryMinValue;
             }
         }
     }

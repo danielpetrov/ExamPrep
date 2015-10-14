@@ -1,30 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Computers.Logic.Manifacturer
+﻿namespace Computers.Logic.Manifacturer
 {
     public class ManifacturersFactory
     {
+        private const string InvalidManifacturerMessage = "Invalid manufacturer!";
+
         public IComputerFactory GetManifacturer(string manifacturerName)
         {
-            if (manifacturerName == "HP")
+            if (manifacturerName == HPComputersFactory.Name)
             {
                 return new HPComputersFactory();
             }
-            else if (manifacturerName == "Dell")
+            else if (manifacturerName == DellComputersFactory.Name)
             {
                 return new DellComputersFactory();
             }
-            else if (manifacturerName == "Lenovo")
+            else if (manifacturerName == LenovoComputersFactory.Name)
             {
                 return new LenovoComputersFactory();
             }
             else
             {
-                throw new InvalidArgumentException("Invalid manufacturer!");
+                throw new InvalidArgumentException(InvalidManifacturerMessage);
             }
         }
     }

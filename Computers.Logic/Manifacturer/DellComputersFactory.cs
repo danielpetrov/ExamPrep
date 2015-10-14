@@ -9,6 +9,8 @@
 
     public class DellComputersFactory : IComputerFactory
     {
+        public const string Name = "Dell";
+
         public Laptop CreateLaptop()
         {
             var laptop = new Laptop(
