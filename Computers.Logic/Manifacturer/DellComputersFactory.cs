@@ -4,16 +4,14 @@
     using System.Collections.Generic;
     using CPUs;
     using ComputerTypes;
+    using VideoCards;
 
     public class DellComputersFactory : IComputerFactory
     {
         public Laptop CreateLaptop()
         {
             var ram = new Ram(8);
-            var videoCard = new VideoCard()
-            {
-                IsMonochrome = false
-            };
+            var videoCard = new ColorVideoCard();
 
             var laptop = new Laptop(
                 new Cpu32(4, ram, videoCard),
@@ -28,7 +26,7 @@
         public PersonalComputer CreatePersonalComputer()
         {
             var ram = new Ram(8);
-            var videoCard = new VideoCard() { IsMonochrome = false };
+            var videoCard = new ColorVideoCard();
             var pc = new PersonalComputer(
                 new Cpu64(4,ram, videoCard),
                 ram,
@@ -41,7 +39,7 @@
         public Server CreateServer()
         {
             var ram = new Ram(64);
-            var videoCard = new VideoCard();
+            var videoCard = new MonochromeVideoCard();
             var server = new Server(
                 new Cpu64(8, ram, videoCard),
                 ram,

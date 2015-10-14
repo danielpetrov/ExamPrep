@@ -4,13 +4,14 @@
     using System.Collections.Generic;
     using CPUs;
     using ComputerTypes;
+    using VideoCards;
 
     public class LenovoComputersFactory : IComputerFactory
     {
         public Laptop CreateLaptop()
         {
             var ram = new Ram(16);
-            var videoCard = new VideoCard() { IsMonochrome = false };
+            var videoCard = new ColorVideoCard();
 
             var laptop = new Laptop(
                 new Cpu64(2, ram, videoCard),
@@ -25,7 +26,7 @@
         public PersonalComputer CreatePersonalComputer()
         {
             var ram = new Ram(4);
-            var videoCard = new VideoCard() { IsMonochrome = true };
+            var videoCard = new ColorVideoCard();
             var pc = new PersonalComputer(
                 new Cpu64(2, ram, videoCard),
                 ram,
@@ -38,7 +39,7 @@
         public Server CreateServer()
         {
             var ram = new Ram(8);
-            var videoCard = new VideoCard();
+            var videoCard = new MonochromeVideoCard();
             var server = new Server(
                 new Cpu128(2, ram, videoCard),
                 ram,

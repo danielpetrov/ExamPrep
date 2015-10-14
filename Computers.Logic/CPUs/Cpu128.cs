@@ -1,4 +1,6 @@
-﻿namespace Computers.Logic.CPUs
+﻿using Computers.Logic.VideoCards;
+
+namespace Computers.Logic.CPUs
 {
     public class Cpu128 : Cpu
     {

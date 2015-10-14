@@ -1,6 +1,7 @@
 ﻿namespace Computers.Logic.ComputerTypes
 {
     using System.Collections.Generic;
+    using VideoCards;
     using CPUs;
 
     public class Server : Computer
@@ -12,7 +13,7 @@
             VideoCard videoCard)
             : base(cpu, ram, hardDrives, videoCard)
         {
-            this.VideoCard.IsMonochrome = true;
+            
         }
 
         public void Process(int data)

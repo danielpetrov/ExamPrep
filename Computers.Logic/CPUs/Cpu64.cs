@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Computers.Logic.VideoCards;
+
 namespace Computers.Logic.CPUs
 {
     public class Cpu64 : Cpu
