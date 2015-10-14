@@ -1,9 +1,9 @@
 ﻿namespace Computers.Logic.Manifacturer
 {
-    using System;
     using System.Collections.Generic;
-    using CPUs;
     using ComputerTypes;
+    using CPUs;
+    using HardDriver;
     using VideoCards;
 
     public class DellComputersFactory : IComputerFactory
@@ -16,7 +16,7 @@
             var laptop = new Laptop(
                 new Cpu32(4, ram, videoCard),
                 ram,
-                new[] { new HardDriver(1000, false, 0) },
+                new[] { new SingleHardDriver(1000) },
                 videoCard,
                 new LaptopBattery());
 
@@ -28,9 +28,9 @@
             var ram = new Ram(8);
             var videoCard = new ColorVideoCard();
             var pc = new PersonalComputer(
-                new Cpu64(4,ram, videoCard),
+                new Cpu64(4, ram, videoCard),
                 ram,
-                new[] { new HardDriver(1000, false, 0) },
+                new[] { new SingleHardDriver(1000) },
                 videoCard);
 
             return pc;
@@ -43,7 +43,7 @@
             var server = new Server(
                 new Cpu64(8, ram, videoCard),
                 ram,
-                new List<HardDriver> { new HardDriver(0, true, 2, new List<HardDriver> { new HardDriver(2000, false, 0), new HardDriver(2000, false, 0) }) },
+                new List<HardDriver> { new RaidArray(new List<HardDriver> { new SingleHardDriver(2000), new SingleHardDriver(2000) }) },
                 videoCard);
 
             return server;

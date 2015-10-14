@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Computers.Logic.VideoCards;
-
-namespace Computers.Logic.CPUs
+﻿namespace Computers.Logic.CPUs
 {
+    using VideoCards;
+
     public class Cpu64 : Cpu
     {
         public Cpu64(byte numberOfCores, Ram ram, VideoCard videoCard)

@@ -1,7 +1,7 @@
-﻿using Computers.Logic.VideoCards;
-
-namespace Computers.Logic.CPUs
+﻿namespace Computers.Logic.CPUs
 {
+    using VideoCards;
+
     public class Cpu32 : Cpu
     {
         public Cpu32(byte numberOfCores, Ram ram, VideoCard videoCard)

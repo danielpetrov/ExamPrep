@@ -1,8 +1,9 @@
 ﻿namespace Computers.Logic.ComputerTypes
 {
     using System.Collections.Generic;
-    using VideoCards;
     using CPUs;
+    using HardDriver;
+    using VideoCards;
 
     public class Server : Computer
     {
@@ -13,7 +14,6 @@
             VideoCard videoCard)
             : base(cpu, ram, hardDrives, videoCard)
         {
-            
         }
 
         public void Process(int data)

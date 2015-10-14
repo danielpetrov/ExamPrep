@@ -1,8 +1,9 @@
 ﻿namespace Computers.Logic.ComputerTypes
 {
     using System.Collections.Generic;
-    using VideoCards;
     using CPUs;
+    using HardDriver;
+    using VideoCards;
 
     public class PersonalComputer : Computer
     {

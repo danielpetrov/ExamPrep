@@ -49,7 +49,9 @@
     <Compile Include="CPUs\Cpu128.cs" />
     <Compile Include="CPUs\Cpu32.cs" />
     <Compile Include="CPUs\Cpu64.cs" />
-    <Compile Include="HardDriver.cs" />
+    <Compile Include="HardDriver\HardDriver.cs" />
+    <Compile Include="HardDriver\RaidArray.cs" />
+    <Compile Include="HardDriver\SingleHardDriver.cs" />
     <Compile Include="IMotherboard.cs" />
     <Compile Include="InvalidArgumentException.cs" />
     <Compile Include="LaptopBattery.cs" />

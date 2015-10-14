@@ -19,18 +19,7 @@
         }
 
         protected byte NumberOfCores { get; set; }
-
-        internal void Rand(int a, int b)
-        {
-            int randomNumber;
-            do
-            {
-                randomNumber = Random.Next(0, 1000);
-            }
-            while (!(randomNumber >= a && randomNumber <= b));
-            this.ram.SaveValue(randomNumber);
-        }
-
+  
         public void SquareNumber()
         {
             var data = this.ram.LoadValue();
@@ -54,9 +43,17 @@
             }
         }
 
+        internal void Rand(int a, int b)
+        {
+            int randomNumber;
+            do
+            {
+                randomNumber = Random.Next(0, 1000);
+            }
+            while (!(randomNumber >= a && randomNumber <= b));
+            this.ram.SaveValue(randomNumber);
+        }
+
         protected abstract int GetMaxValue();
     }
- 
-
-    
-}
+ }

@@ -1,9 +1,8 @@
-﻿using System;
-using Computers.Logic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Computer.Tests
+﻿namespace Computer.Tests
 {
+    using Computers.Logic;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class LaptopBatteryChargeTests
     {

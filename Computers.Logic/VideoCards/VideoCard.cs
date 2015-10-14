@@ -2,7 +2,6 @@
 {
     using System;
     
-    
     public abstract class VideoCard
     {
         public VideoCard()
