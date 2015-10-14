@@ -2,6 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using Logic.ComputerTypes;
+    using Logic;
+    using Logic.Manifacturer;
+
     ////using ComputerTypes;
 
     public class Program

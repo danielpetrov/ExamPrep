@@ -1,5 +1,7 @@
-﻿namespace Computers.UI
+﻿namespace Computers.Logic.Manifacturer
 {
+    using Computers.Logic.ComputerTypes;
+
     public interface IComputerFactory
     {
         PersonalComputer CreatePersonalComputer();

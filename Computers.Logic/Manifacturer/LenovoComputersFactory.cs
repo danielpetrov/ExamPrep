@@ -1,7 +1,8 @@
-﻿namespace Computers.UI
+﻿namespace Computers.Logic.Manifacturer
 {
     using System;
     using System.Collections.Generic;
+    using ComputerTypes;
 
     public class LenovoComputersFactory : IComputerFactory
     {
