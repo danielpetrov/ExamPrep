@@ -7,7 +7,7 @@
         private readonly LaptopBattery battery;
 
         internal Laptop(
-            Cpu cpu,
+            CPUs.Cpu cpu,
             Ram ram,
             IEnumerable<HardDriver> hardDrives,
             VideoCard videoCard,

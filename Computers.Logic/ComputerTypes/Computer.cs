@@ -1,6 +1,7 @@
 ﻿namespace Computers.Logic.ComputerTypes
 {
     using System.Collections.Generic;
+    using CPUs;
 
     public abstract class Computer
     {
