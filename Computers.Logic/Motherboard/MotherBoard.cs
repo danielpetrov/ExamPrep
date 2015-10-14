@@ -1,11 +1,13 @@
 ﻿namespace Computers.Logic.Motherboard
 {
+    using CPUs;
     using VideoCards;
-    
+
     public class Motherboard : IMotherboard
     {
-        public Motherboard(VideoCard videoCard, Ram ram)
+        public Motherboard(Cpu cpu, VideoCard videoCard, Ram ram)
         {
+            cpu.AttachTo(this);
             this.Ram = ram;
             this.VideoCard = videoCard;
         }

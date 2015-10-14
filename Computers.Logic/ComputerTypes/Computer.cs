@@ -3,10 +3,13 @@
     using System.Collections.Generic;
     using CPUs;
     using HardDriver;
+    using Motherboard;
     using VideoCards;
 
     public abstract class Computer
     {
+        private Motherboard motherboard;
+
         internal Computer(
             Cpu cpu, 
             Ram ram, 
@@ -17,6 +20,7 @@
             this.Ram = ram;
             this.HardDrives = hardDrives;
             this.VideoCard = videoCard;
+            this.motherboard = new Motherboard(this.Cpu, this.VideoCard, this.Ram);
         }
 
         protected IEnumerable<HardDriver> HardDrives { get; set; }

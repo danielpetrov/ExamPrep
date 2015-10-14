@@ -1,35 +1,37 @@
 ﻿namespace Computers.Logic.CPUs
 {
     using System;
+    using Motherboard;
     using VideoCards;
 
-    public abstract class Cpu
+    public abstract class Cpu : IMotherboardComponent
     {
         protected static readonly Random Random = new Random();
 
-        protected Ram ram;
-
-        protected VideoCard videoCard;
-        ////TODO shoud CPU know about videocard and ram?
-        protected Cpu(byte numberOfCores, Ram ram, VideoCard videoCard)
+        protected Cpu(byte numberOfCores)
         {
-            this.ram = ram;
             this.NumberOfCores = numberOfCores;
-            this.videoCard = videoCard;
         }
 
         protected byte NumberOfCores { get; set; }
-  
+
+        private IMotherboard Motherboard { get; set; }
+
+        public void AttachTo(IMotherboard motherboard)
+        {
+            this.Motherboard = motherboard;
+        }
+
         public void SquareNumber()
         {
-            var data = this.ram.LoadValue();
+            var data = this.Motherboard.LoadRamValue();
             if (data < 0)
             {
-                this.videoCard.Draw("Number too low.");
+                this.Motherboard.DrawOnVideoCard("Number too low.");
             }
             else if (data > this.GetMaxValue())
             {
-                this.videoCard.Draw("Number too high.");
+                this.Motherboard.DrawOnVideoCard("Number too high.");
             }
             else
             {
@@ -39,7 +41,7 @@
                     value += data;
                 }
 
-                this.videoCard.Draw(string.Format("Square of {0} is {1}.", data, value));
+                this.Motherboard.DrawOnVideoCard(string.Format("Square of {0} is {1}.", data, value));
             }
         }
 
@@ -51,9 +53,9 @@
                 randomNumber = Random.Next(0, 1000);
             }
             while (!(randomNumber >= a && randomNumber <= b));
-            this.ram.SaveValue(randomNumber);
+            this.Motherboard.SaveRamValue(randomNumber);
         }
 
         protected abstract int GetMaxValue();
-    }
+     }
  }

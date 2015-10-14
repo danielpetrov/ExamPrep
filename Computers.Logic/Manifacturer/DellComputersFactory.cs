@@ -10,14 +10,11 @@
     {
         public Laptop CreateLaptop()
         {
-            var ram = new Ram(8);
-            var videoCard = new ColorVideoCard();
-
             var laptop = new Laptop(
-                new Cpu32(4, ram, videoCard),
-                ram,
+                new Cpu32(4),
+                new Ram(8),
                 new[] { new SingleHardDriver(1000) },
-                videoCard,
+                new ColorVideoCard(),
                 new LaptopBattery());
 
             return laptop;
@@ -25,26 +22,22 @@
 
         public PersonalComputer CreatePersonalComputer()
         {
-            var ram = new Ram(8);
-            var videoCard = new ColorVideoCard();
             var pc = new PersonalComputer(
-                new Cpu64(4, ram, videoCard),
-                ram,
+                new Cpu64(4),
+                new Ram(8),
                 new[] { new SingleHardDriver(1000) },
-                videoCard);
+                new ColorVideoCard());
 
             return pc;
         }
 
         public Server CreateServer()
         {
-            var ram = new Ram(64);
-            var videoCard = new MonochromeVideoCard();
             var server = new Server(
-                new Cpu64(8, ram, videoCard),
-                ram,
+                new Cpu64(8),
+                new Ram(64),
                 new List<HardDriver> { new RaidArray(new List<HardDriver> { new SingleHardDriver(2000), new SingleHardDriver(2000) }) },
-                videoCard);
+                new MonochromeVideoCard());
 
             return server;
         }
